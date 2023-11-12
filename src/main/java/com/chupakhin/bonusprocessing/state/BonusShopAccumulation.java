@@ -14,6 +14,6 @@ public class BonusShopAccumulation implements PaymentState {
 
     @Override
     public void process(UserAccount userAccount, BigDecimal amount) {
-        userAccount.addBonus(amount.multiply(BONUS_PERCENT));
+        userAccount.addBonus(amount.multiply(BONUS_PERCENT));  // добавляем бонусы
     }
 }

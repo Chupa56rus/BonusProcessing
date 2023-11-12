@@ -14,6 +14,6 @@ public class OnlineCommission implements PaymentState {
 
     @Override
     public void process(UserAccount userAccount, BigDecimal amount) {
-        userAccount.takeCommission(amount.multiply(COMMISSION));
+        userAccount.takeCommission(amount.multiply(COMMISSION));  // снимаем комиссию
     }
 }

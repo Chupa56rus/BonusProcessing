@@ -10,8 +10,8 @@ import java.math.BigDecimal;
 public class OnlinePay implements PaymentState {
     @Override
     public void process(UserAccount userAccount, BigDecimal amount) {
-        userAccount.purchase(amount);
-        userAccount.setState(new BonusOnlineAccumulation());
-        userAccount.stateProcess(amount);
+        userAccount.purchase(amount);  // оплачиваем покупку
+        userAccount.setState(new BonusOnlineAccumulation()); // переходим в состояние начисления бонусов за онлайн покупки
+        userAccount.stateProcess(amount);  // запускаем процесс начисления бонусов
     }
 }

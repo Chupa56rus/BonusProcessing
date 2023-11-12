@@ -30,11 +30,11 @@ public class BonusOnlineAccumulation implements PaymentState {
     @Override
     public void process(UserAccount userAccount, BigDecimal amount) {
         if(amount.compareTo(LIMIT_FOR_MIN_BONUS) < 0){
-            userAccount.setState(new OnlineCommission());
-            userAccount.stateProcess(amount);
+            userAccount.setState(new OnlineCommission());  // переходим в состояние начисления комиссии
+            userAccount.stateProcess(amount);  // запускаем процесс состояния
         } else {
             BigDecimal percent = amount.compareTo(LIMIT_FOR_MAX_BONUS) >= 0 ? MAX_BONUS_PERCENT : MIN_BONUS_PERCENT;
-            userAccount.addBonus(amount.multiply(percent));
+            userAccount.addBonus(amount.multiply(percent));  // добавляем бонусы
         }
     }
 }
